@@ -1,0 +1,292 @@
+<html lang="th">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   TOI-Zero Programming Problem
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom font family to mimic the document style */
+  body {
+    font-family: 'Tahoma', 'Arial', sans-serif;
+  }
+  /* Table border style exactly as in the screenshot */
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.875rem;
+  }
+  /* Smaller font for the top logos text */
+  .top-text {
+    font-size: 0.875rem;
+    line-height: 1.1;
+  }
+  /* Smaller font for the footer text */
+  .footer-text {
+    font-size: 0.875rem;
+  }
+  /* Bold and underline for certain headings */
+  .bold-underline {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  /* Bold for certain headings */
+  .bold {
+    font-weight: 700;
+  }
+  /* The box with the title and date */
+  .title-box {
+    border: 1px solid black;
+  }
+  /* The table inside the text with no padding on left and right */
+  .inner-table th, .inner-table td {
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+  }
+  </style>
+ </head>
+ <body class="px-4 py-2 max-w-[900px] mx-auto select-none">
+  <div class="text-center top-text leading-tight mt-2 mb-1">
+   <div>
+    โครงการ TOI-Zero
+   </div>
+   <div>
+    ข้อสอบสำหรับการฝึกทักษะการเขียนโปรแกรมคอมพิวเตอร์
+   </div>
+   <div>
+    เพื่อการอบรมค่ายคอมพิวเตอร์โอลิมปิกวิชาการ
+   </div>
+  </div>
+  <div class="title-box grid grid-cols-[auto_1fr_auto] border-black mb-3">
+   <div class="px-2 py-1 text-[0.875rem] font-bold text-[#005a4f] leading-tight">
+    KU
+    <br/>
+    01
+   </div>
+   <div class="border-x border-black px-2 py-1 font-bold text-[1rem] leading-tight text-center">
+    กางเต็นท์
+   </div>
+   <div class="px-2 py-1 text-[0.875rem] leading-tight">
+    การทดสอบวันที่ 27 พ.ย. 2564
+   </div>
+  </div>
+  <p class="mb-2 text-[0.875rem] leading-relaxed">
+   คุณต้องการกางเต็นท์สี่เหลี่ยมจัตุรัสบนลานกว้างแห่งหนึ่ง เราจะพิจารณาลานกว้างเป็นระนาบ
+   <br/>
+   คุณต้องการให้เต็นท์มีขนาดใหญ่ที่สุดเท่าที่จะทำได้ แต่ขอบของเต็นท์จะต้องวางห น้ากับแกน x หรือ y เท่านั้น
+   <br/>
+   ในการกางเต็นท์คุณจะต้องปักเสา 4 ต้นที่มุมเต็นท์ บนลานกว้างมีการเจาะหลุมปักเสาที่วางบริเวณกางเต็นท์ที่ต้องวาง
+   <br/>
+   มีหลุมทั้งหมด N หลุม อยู่ที่ตำแหน่ง (X
+   <sub>
+    1
+   </sub>
+   ,Y
+   <sub>
+    1
+   </sub>
+   ), (X
+   <sub>
+    2
+   </sub>
+   ,Y
+   <sub>
+    2
+   </sub>
+   ),... (X
+   <sub>
+    N
+   </sub>
+   ,Y
+   <sub>
+    N
+   </sub>
+   ) ในการจะกางเต็นท์ให้ได้ดีนั้นต้องมีเสาอย่างน้อย
+   <u>
+    สองต้นที่อยู่มุมตรงข้ามกันปักในหลุมรูปเหล่านี้ (มุมตรงข้ามกันเช่น มุมบนซ้ายกับมุมล่างขวา หรือมุมบนขวากับมุมล่างซ้าย)
+   </u>
+  </p>
+  <p class="mb-2 text-[0.875rem] leading-relaxed">
+   พิจารณาตัวอย่างต่อไปนี้ สมมติว่ามีหลุมทั้งสิ้น 6 หลุม ที่พิกัดแสดงในตารางด้านล่าง รูปด้านขวาแสดงตัวอย่างหลุมแสดงเป็นวงกลม เต็นท์หรือสี่เหลี่ยมที่ทางได้แสดงเป็นสีต่าง ๆ สังเกตว่าขนาดเต็นท์ใหญ่ที่สุดคือ 4 หน่วย
+  </p>
+  <div class="flex flex-col md:flex-row gap-4 mb-3">
+   <table class="inner-table w-[180px] text-center text-[0.875rem] leading-tight">
+    <thead>
+     <tr>
+      <th class="border border-black">
+       i
+      </th>
+      <th class="border border-black">
+       X
+       <sub>
+        i
+       </sub>
+      </th>
+      <th class="border border-black">
+       Y
+       <sub>
+        i
+       </sub>
+      </th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td class="border border-black">
+       1
+      </td>
+      <td class="border border-black">
+       1
+      </td>
+      <td class="border border-black">
+       2
+      </td>
+     </tr>
+     <tr>
+      <td class="border border-black">
+       2
+      </td>
+      <td class="border border-black">
+       5
+      </td>
+      <td class="border border-black">
+       6
+      </td>
+     </tr>
+     <tr>
+      <td class="border border-black">
+       3
+      </td>
+      <td class="border border-black">
+       4
+      </td>
+      <td class="border border-black">
+       3
+      </td>
+     </tr>
+     <tr>
+      <td class="border border-black">
+       4
+      </td>
+      <td class="border border-black">
+       7
+      </td>
+      <td class="border border-black">
+       4
+      </td>
+     </tr>
+     <tr>
+      <td class="border border-black">
+       5
+      </td>
+      <td class="border border-black">
+       6
+      </td>
+      <td class="border border-black">
+       1
+      </td>
+     </tr>
+     <tr>
+      <td class="border border-black">
+       6
+      </td>
+      <td class="border border-black">
+       8
+      </td>
+      <td class="border border-black">
+       0
+      </td>
+     </tr>
+    </tbody>
+   </table>
+   <div class="flex-1 flex justify-center items-center">
+    <img alt="ภาพกราฟิกแสดงการกางเต็นท์สี่เหลี่ยมจัตุรัสสีแดง สีเขียว สีส้ม บนกริดตาราง มีจุดวงกลมสีขาวแสดงตำแหน่งหลุมปักเสา" class="max-w-full h-auto" height="200" src="https://storage.googleapis.com/a1aa/image/b961c1d1-7c8f-4220-bfef-9f8044a577de.jpg" width="300"/>
+   </div>
+  </div>
+  <p class="mb-2 text-[0.875rem] leading-relaxed">
+   ให้คุณเขียนโปรแกรมเพื่อหาว่าขนาดเต็นท์ที่ใหญ่ที่สุดที่สามารถกางได้เป็นเท่าใด (ขนาดเต็นท์ระบุเป็นความกว้างของด้านของสี่เหลี่ยมจัตุรัส) ถ้าไม่สามารถกางได้ให้ตอบขนาดเท่ากับ 0
+  </p>
+  <p class="mb-1 text-[0.875rem] font-bold">
+   ข้อมูลนำเข้า
+  </p>
+  <p class="mb-2 text-[0.875rem] leading-relaxed">
+   ข้อมูลนำเข้าบรรทัดแรกระบุจำนวนเต็ม N (1 &lt;= N &lt;= 100,000) รับประกันว่ามีข้อมูลทดสอบ 50% ที่ N &lt;= 300
+   <br/>
+   อีก N บรรทัดระบุพิกัดของหลุมปูน กล่าวคือสำหรับ 1 &lt;= i &lt;= N, บรรทัดที่ 1 + i ระบุจำนวนเต็มสองจำนวน X
+   <sub>
+    i
+   </sub>
+   Y
+   <sub>
+    i
+   </sub>
+   (0 &lt;= X
+   <sub>
+    i
+   </sub>
+   &lt;= 1,000,000,000; 0 &lt;= Y
+   <sub>
+    i
+   </sub>
+   &lt;= 1,000,000,000)
+  </p>
+  <p class="mb-1 text-[0.875rem] font-bold">
+   ข้อมูลส่งออก
+  </p>
+  <p class="mb-2 text-[0.875rem] leading-relaxed">
+   มีหนึ่งบรรทัดระบุขนาดของเต็นท์ที่ใหญ่ที่สุด ถ้าไม่สามารถกางเต็นท์ได้ตามเงื่อนไขให้ตอบ 0
+  </p>
+  <p class="mb-1 text-[0.875rem] font-bold">
+   เงื่อนไขการทำงาน
+  </p>
+  <p class="mb-2 text-[0.875rem] leading-relaxed">
+   โปรแกรมต้องทำงานภายใน 1 วินาที ใช้หน่วยความจำไม่เกิน 256 MB
+  </p>
+  <p class="mb-1 text-[0.875rem] font-bold">
+   ตัวอย่าง 1
+  </p>
+  <table class="w-full text-[0.875rem] leading-tight">
+   <thead>
+    <tr>
+     <th class="border border-black px-1 py-0.5 text-left align-top">
+      Input
+     </th>
+     <th class="border border-black px-1 py-0.5 text-left align-top">
+      Output
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td class="border border-black align-top px-1 py-0.5 whitespace-pre-wrap" style="min-width: 50%">
+      6
+1 2
+5 6
+4 3
+7 4
+6 1
+8 0
+     </td>
+     <td class="border border-black align-top px-1 py-0.5">
+     </td>
+    </tr>
+    <tr>
+     <td class="border border-black align-top px-1 py-0.5">
+     </td>
+     <td class="border border-black align-top px-1 py-0.5 text-center font-bold">
+      4
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <div class="footer-text text-center mt-6 mb-4">
+   ออกโจทย์โดย ดร.จิตรทัศน์ ฝักเจริญผล คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเกษตรศาสตร์
+  </div>
+ </body>
+</html>
